@@ -5,13 +5,6 @@ import matplotlib.pyplot as plt
 from transformers import pipeline
 import os
 
-# load classifier
-def load_classifier():
-    classifier = pipeline("text-classification", 
-                      model="j-hartmann/emotion-english-distilroberta-base", 
-                      return_all_scores=False)
-    return classifier
-
 # load data
 def load_data():
     datapath = os.path.join("..","data","Game_of_Thrones_Script.csv")
@@ -20,8 +13,11 @@ def load_data():
     return specific_df
 
 # process data
-def process_data(specific_df, classifier):
+def process_data(specific_df):
     labels = []
+    classifier = pipeline("text-classification", 
+                      model="j-hartmann/emotion-english-distilroberta-base", 
+                      return_all_scores=False)
     for line in specific_df["Sentence"]:
         label = classifier(line)
         labels.append(label[0]["label"])
@@ -53,3 +49,10 @@ def plot_analysis(specific_df):
     # Show the plot
     plt.show()
 
+def main():
+    specific_df = load_data()
+    specific_df = process_data(specific_df)
+    specific_df = plot_analysis(specific_df)
+
+if __name__ == "__main__":
+    main()
