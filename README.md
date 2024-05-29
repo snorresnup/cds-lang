@@ -1,3 +1,8 @@
+# Cultural Data Science - Language Analytics
+- Author: Snorre Alsted Søndergaard
+- Date: May 31th 2024
+- Teacher: Ross Dean Kristensen-MacLachlan
+
 # Assignment 1:
 ### Short description:
 This assignment shows how you can use `spaCy` to extract linguistic information from a large textual dataset. The script extracts linguistic information from the The Uppsala Student English Corpus. The script loops over each text file in the 14 different folders, and extracts the relative frequency of nouns, verbs, adverbs, and adjectives per 10,000 words, and the total number of unique person, location, and organisation names. This information is displayed in a `.csv` file for each folder. The script also uses `CarbonCode` in order to track the code's carbon emissions, which will be expanded on in Assignment 5.
