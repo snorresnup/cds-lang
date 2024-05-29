@@ -4,7 +4,7 @@
 source ./env/bin/activate
 
 # run the code
-python src/assignment3.py
+python src/main.py "$@"
 
 # close
 deactivate
